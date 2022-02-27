@@ -8,14 +8,14 @@ namespace AddressBookSystem
         {
             Console.WriteLine("Welcome to Address Book \n");
 
-            //AddressBookMain addressBookMain = new AddressBookMain();
-            //addressBookMain.AddressBook();
+            AddressBookMain addressBookMain = new AddressBookMain();
+            addressBookMain.AddressBook();
 
-            AddUsingConsole addUsingConsole = new AddUsingConsole();
-            addUsingConsole.readUserDetails();
+            //AddUsingConsole addUsingConsole = new AddUsingConsole();
+            //addUsingConsole.readUserDetails();
 
-            //EditPersonDetails editPersonDetails = new EditPersonDetails();
-            //editPersonDetails.editUserDetails();
+            EditPersonDetails editPersonDetails = new EditPersonDetails();
+            editPersonDetails.editUserDetails();
 
         }
     }

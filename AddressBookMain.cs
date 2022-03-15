@@ -8,38 +8,68 @@ namespace AddressBookSystem
 {
     public class AddressBookMain
     {
-        string firstName;
-        string lastName;
-        string address;
-        string city;
-        string state;
-        int pinCode;
-        long phone_number;
-        string email;
-        public void AddressBook()
-        {
-            firstName = "Donald";
-            lastName = "JK";
-            address = "4/119/4 Muthammal colony 5th Street";
-            city = "Thoothukudi";
-            state = "Tamilnadu";
-            pinCode = 628002;
-            phone_number = 8056446118;
-            email = "donaldkarey@gmail.com";
+        List<Contact> contacts = new List<Contact>();
 
-            Console.WriteLine("FirstName: "+firstName+"\nLastName: "+lastName+"\nAdress: "+address+"\nCity: "+city+"\nState: "+state+"\nPinCode: "+pinCode+"\nPhoneNUmber: "+phone_number+"\nEmailId: "+email);
-        }
-        public void AddressBook(string name, string lastName, string address, string city, string state, int pinCode, long contact, string email)
+        public void addContact(string firstName, string email, string lastName, string phoneNumber, string address, string city, string zip, string state)
         {
-            firstName = name;
-            lastName = lastName;
-            address = address;
-            city = city;
-            state = state;
-            pinCode = pinCode;
-            phone_number = contact;
-            email = email;
-            Console.WriteLine("Hi " + firstName + " " + lastName + " your details have been saved");
+            contacts.Add(new Contact()
+            {
+                firstName = firstName,
+                lastName = lastName,
+                email = email,
+                phoneNumber = phoneNumber,
+                address = address,
+                zip = zip,
+                city = city,
+                state = state,
+            });
+            Console.WriteLine($"Contact of {firstName} has been added");
+        }
+
+        public void Edit(string name)
+        {
+            Contact editContact = null;
+            foreach (var contact in contacts)
+            {
+                if (contact.firstName.Contains(name))
+                {
+                    editContact = contact;
+                }
+            }
+
+            Console.WriteLine("Plz provide new firstName");
+            editContact.firstName = Console.ReadLine();
+            Console.WriteLine("Plz provide new lastName");
+            editContact.lastName = Console.ReadLine();
+            Console.WriteLine("Plz provide new email");
+            editContact.email = Console.ReadLine();
+            Console.WriteLine("Plz provide new phoneNumber");
+            editContact.phoneNumber = Console.ReadLine();
+            Console.WriteLine("Plz provide new address");
+            editContact.address = Console.ReadLine();
+            Console.WriteLine("Plz provide new zip");
+            editContact.zip = Console.ReadLine();
+            Console.WriteLine("Plz provide new city");
+            editContact.city = Console.ReadLine();
+            Console.WriteLine("Plz provide new state");
+            editContact.state = Console.ReadLine();
+
+            contacts.Add(editContact);
+            Console.WriteLine($"Contact of {name} has been edited");
+        }
+
+        public void Remove(string name)
+        {
+            Contact RemoveContact = null;
+            foreach (var contact in contacts)
+            {
+                if (contact.firstName.Contains(name))
+                {
+                    RemoveContact = contact;
+                }
+            }
+            contacts.Remove(RemoveContact);
+            Console.WriteLine($"Contact of {name} has been deleted");
         }
     }
 }

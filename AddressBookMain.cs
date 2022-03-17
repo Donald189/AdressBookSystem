@@ -132,5 +132,35 @@ namespace AddressBookSystem
                 Console.WriteLine(sort);
             }
         }
+
+        public void SortByCity()
+        {
+            contactList.Sort(new Comparison<Contact>((a, b) => string.Compare(a.city, b.city)));
+            Console.WriteLine("Contacts after sorting By City = ");
+            foreach (Contact contact in contactList)
+            {
+                Console.WriteLine("\n FirstName = " + contact.firstName + "\n Last Name = " + contact.lastName + "\n Address = " + contact.address + "\n City = " + contact.city + "\n State = " + contact.state + "\n Zip = " + contact.zip + "\n Phone Number = " + contact.phoneNumber + "\n Email = " + contact.email);
+            }
+        }
+
+        public void SortByState()
+        {
+            contactList.Sort(new Comparison<Contact>((a, b) => string.Compare(a.state, b.state)));
+            Console.WriteLine("Contacts after sorting By State = ");
+            foreach (Contact contact in contactList)
+            {
+                Console.WriteLine("\n FirstName = " + contact.firstName + "\n Last Name = " + contact.lastName + "\n Address = " + contact.address + "\n City = " + contact.city + "\n State = " + contact.state + "\n Zip = " + contact.zip + "\n Phone Number = " + contact.phoneNumber + "\n Email = " + contact.email);
+            }
+        }
+
+        public void SortByZip()
+        {
+            contactList.Sort(new Comparison<Contact>((a, b) => string.Compare(a.zip, b.zip)));
+            Console.WriteLine("Contacts after sorting By Zip = ");
+            foreach (Contact contact in contactList)
+            {
+                Console.WriteLine("\n FirstName = " + contact.firstName + "\n Last Name = " + contact.lastName + "\n Address = " + contact.address + "\n City = " + contact.city + "\n State = " + contact.state + "\n Zip = " + contact.zip + "\n Phone Number = " + contact.phoneNumber + "\n Email = " + contact.email);
+            }
+        }
     }
 }

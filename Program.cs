@@ -159,5 +159,40 @@ namespace AddressBookSystem
                 }
             }
         }
+
+        public static Dictionary<string, List<string>> FindByCityOrState(Dictionary<string, AddressBookMain> adressBookDictionary, Dictionary<string, List<string>> areaDisc)
+        {
+            Console.WriteLine("Enter the city or state where you want to find that person = ");
+            string findPlace = Console.ReadLine();
+            foreach (var element in adressBookDictionary)
+            {
+                List<string> listOfPersonsInPlace = element.Value.SearchPersons(findPlace);
+                foreach (var name in listOfPersonsInPlace)
+                {
+                    if (!areaDisc.ContainsKey(findPlace))
+                    {
+                        List<string> personList = new List<string>();
+                        personList.Add(name);
+                        areaDisc.Add(findPlace, personList);
+                    }
+                    else
+                    {
+                        areaDisc[findPlace].Add(name);
+                    }
+                }
+            }
+            return areaDisc;
+        }
+
+        public static void displayPersonDisc(Dictionary<string, List<string>> areaDisc)
+        {
+            foreach (var index in areaDisc)
+            {
+                foreach (var personName in index.Value)
+                {
+                    Console.WriteLine("personName:-" + personName + "display area:-" + index.Key);
+                }
+            }
+        }
     }
 }

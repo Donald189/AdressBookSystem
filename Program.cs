@@ -128,9 +128,14 @@ namespace AddressBookSystem
 
             Console.WriteLine("Enter state");
             string state = Console.ReadLine();
-
-            adressBook.addContact(firstName, lastName, email, phoneNumber, address, zip, city, state);
-
+            if ((firstName != "") || (lastName != "") || (address != "") || (city != "") || (state != "") || (zip != "") || (email != "") || (phoneNumber != ""))
+            {
+                adressBook.addContact(firstName, lastName, email, phoneNumber, address, zip, city, state);
+            }
+            else
+            {
+                Console.WriteLine("Empty string not allowed \n for add contacts please give the input in string");
+            }
         }
     }
 }

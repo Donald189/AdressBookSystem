@@ -117,5 +117,20 @@ namespace AddressBookSystem
             }
             return personFounded;
         }
+
+        public void Sort()
+        {
+            List<string> sortList = new List<string>();
+            foreach (Contact contacts in contactList)
+            {
+                string sort = contacts.ToString();
+                sortList.Add(sort);
+            }
+            sortList.Sort();
+            foreach (string sort in sortList)
+            {
+                Console.WriteLine(sort);
+            }
+        }
     }
 }

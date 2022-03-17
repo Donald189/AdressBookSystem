@@ -9,6 +9,9 @@ namespace AddressBookSystem
             Console.WriteLine("Welcome to Address Book program");
 
             Dictionary<string, AddressBookMain> adressBookDictionary = new Dictionary<string, AddressBookMain>();
+            Dictionary<string, List<string>> cityDisc = new Dictionary<string, List<string>>();
+            Dictionary<string, List<string>> StateDisc = new Dictionary<string, List<string>>();
+
             while (true)
             {
                 try

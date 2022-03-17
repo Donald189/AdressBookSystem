@@ -186,13 +186,16 @@ namespace AddressBookSystem
 
         public static void displayPersonDisc(Dictionary<string, List<string>> areaDisc)
         {
+            int count = 0;
             foreach (var index in areaDisc)
             {
                 foreach (var personName in index.Value)
                 {
+                    count++;
                     Console.WriteLine("personName:-" + personName + "display area:-" + index.Key);
                 }
             }
+            Console.WriteLine("count:-" + count);
         }
     }
 }

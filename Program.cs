@@ -137,5 +137,27 @@ namespace AddressBookSystem
                 Console.WriteLine("Empty string not allowed \n for add contacts please give the input in string");
             }
         }
+
+        public static void SearchByCityOrState(Dictionary<string, AddressBookMain> adressBookDictionary)
+        {
+            Console.WriteLine("Enter the city or state where you want to find that person = ");
+            string findPlace = Console.ReadLine();
+            foreach (var element in adressBookDictionary)
+            {
+                List<string> listOfPersonsInPlace = element.Value.SearchPersons(findPlace);
+                if (listOfPersonsInPlace.Count == 0)
+                {
+                    Console.WriteLine("No person in that city/state of adress book  = " + element.Key);
+                }
+                else
+                {
+                    Console.WriteLine("The person in that city/state of adress book = " + element.Key + " = ");
+                    foreach (var names in listOfPersonsInPlace)
+                    {
+                        Console.WriteLine(names);
+                    }
+                }
+            }
+        }
     }
 }
